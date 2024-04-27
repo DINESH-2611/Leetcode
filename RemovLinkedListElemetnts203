@@ -1,0 +1,25 @@
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        if(head==null)  return null;
+        while(head.next!=null){
+            if(head.val==val){
+                head=head.next;
+            }else{
+                break;
+            }
+        }
+        if(head.val==val) return null;
+        ListNode temp=head,pointer=null;
+        while(temp.next!=null){
+            if(temp.val==val){
+                pointer.next=temp.next;
+                temp=pointer;
+            }
+            pointer=temp;
+            temp=temp.next;
+        }
+        if(temp.val==val) pointer.next=null;
+        return head;
+
+    }
+}
