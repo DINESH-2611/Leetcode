@@ -1,0 +1,25 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+      int[] a=new int[2];
+      int count=0,star=0;
+      for(int i=0;i<nums.length;i++){
+          if(nums[i]==target){
+            if(star==0){
+                a[0]=i;
+                star=1;            
+                }else{
+                    count++;
+                }
+          }
+      }
+     if(count==0)
+     a[1]=a[0];
+     if(star==0){
+         a[0]=-1;
+         a[1]=-1;
+     }
+     a[1]=a[0]+count;
+      return a;
+    }
+      
+}
