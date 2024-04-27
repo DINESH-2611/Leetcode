@@ -1,0 +1,28 @@
+class Solution {
+    public List<List<String>> partition(String s) {
+        List<List<String>> list=new ArrayList();
+        List<String> sub=new ArrayList();
+        part(0,s,sub,list);
+        return list;
+    }
+    void part(int index,String s,List<String> sub,List<List<String>> list){
+        if(index==s.length()){
+            list.add(new ArrayList<>(sub));
+            return;
+        }
+        for(int i=index;i<s.length();i++){
+            if(isPalindrome(s,index,i)){
+                  sub.add(s.substring(index,i+1));
+                  part(i+1,s,sub,list);
+                  sub.remove(sub.size()-1);
+            }
+        }
+    }
+    boolean isPalindrome(String s,int start,int end){
+        while(start<=end){
+            if(s.charAt(start++)!=s.charAt(end--)){
+                return false;
+            }
+        }return true;
+    }
+}
