@@ -1,0 +1,74 @@
+import java.math.*;
+class Solution {
+    public int divide(int dividend, int divisor) {
+        if(dividend==Integer.MIN_VALUE && divisor==1)
+        return Integer.MIN_VALUE;
+        if(dividend==Integer.MIN_VALUE && )
+        int s=(dividend<0)^(divisor<0)?-1:1;
+        if(dividend==Integer.MIN_VALUE)
+        dividend=Math.abs(dividend)-1;
+        else
+        dividend=Math.abs(dividend);
+        divisor=Math.abs(divisor);
+        long count=0;
+        while(dividend>=divisor){
+            dividend-=divisor;
+            ++count;
+        }
+        if(s==-1)
+        count=-count;
+        if(count<Integer.MIN_VALUE)
+        return Integer.MIN_VALUE;
+        if(count>Integer.MAX_VALUE)
+        return Integer.MAX_VALUE;
+        return (int)count;
+    //      if(dividend==-2147483648 && divisor ==-1) return Integer.MAX_VALUE;
+    //    BigInteger divden = new BigInteger(Integer.toString(dividend));
+    //    BigInteger divsor = new BigInteger(Integer.toString(divisor));
+    //    BigInteger ans = divden.divide(divsor);
+    //    int res = ans.intValue();
+    //    return res;
+    // if (dividend == Integer.MIN_VALUE && divisor == -1)
+    //         return Integer.MAX_VALUE;
+    //     if (divisor == 1)
+    //         return dividend;
+    //     if (dividend > 0 && divisor > 0)
+    //         return divide(-dividend, -divisor);
+    //     else if (dividend > 0)
+    //         return -divide(-dividend, divisor);
+    //     else if (divisor > 0)
+    //         return -divide(dividend, -divisor);
+    //     if (divisor < dividend || dividend == 0)
+    //         return 0;
+    //     int sum = divisor;
+    //     int mult = 1;
+    //     while ((sum + sum) < sum && (sum + sum) >= dividend) {
+    //         sum += sum;
+    //         mult += mult;
+    //     }
+    //     return mult + divide(dividend - sum, divisor);
+
+//   if(dividend==Integer.MIN_VALUE&&divisor==-1) return Integer.MAX_VALUE;
+//         int sign = (dividend < 0 && divisor > 0) || (dividend >0 && divisor < 0) ? -1 : 1;
+//         divisor = divisor < 0 ? divisor : -divisor;
+//         dividend = dividend < 0 ? dividend : -dividend;
+//         int sol = divRec(dividend,divisor);
+//         return sign < 0 ? -sol : sol;
+//     }
+    
+//     public int divRec(int dividend, int divisor)
+//     {
+//         if(divisor<dividend) return 0;
+//         if(divisor==dividend) return 1;
+//         int sol =1;
+//         int current = divisor;
+        
+//         while(dividend - current < current)
+//         {
+//             sol+=sol;
+//             current +=current;
+//         }
+        
+//         return sol + divRec(dividend - current, divisor);
+    }
+}
