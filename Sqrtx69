@@ -1,0 +1,24 @@
+
+class Solution {
+    public int mySqrt(int x) {
+        // if(x==Integer.MAX_VALUE)
+        // return 46340;
+        // int a=1;
+        // while(x>a*a){
+        //     a++;
+        // }
+        // if(a*a==x)
+        // return a;
+        // return a-1;
+        int i=1,j=x,k=0;
+        while(i<=j){
+            k=i+(j-i)/2;
+            if(k*k==x)
+            return k;
+            else if((long)k*k>(long)x)
+            j=k-1;
+            else
+            i=k+1;
+        }return j;
+    }
+}
