@@ -1,0 +1,49 @@
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        List<Character>[] row=new List[9];
+		List<Character>[] col=new List[9];
+		List<Character>[] sub=new List[9];
+        // String[] row=new String[9];
+        //  String[] col=new String[9];
+        //   String[] sub=new String[9];
+		for(int i=0;i<9;i++) {
+			row[i]=new ArrayList<Character>();
+			col[i]=new ArrayList<Character>();
+			sub[i]=new ArrayList<Character>();
+		}
+		
+		for(int i=0;i<9;i++) {
+			for(int j=0;j<9;j++) {
+				char c=board[i][j];
+
+				if(c!='.') {
+					if( row[i]!=null &&row[i].contains(c))
+						return false;
+					else
+						row[i].add(c);
+                        // row[i]+=c;
+					
+					
+					if( col[j]!=null &&col[j].contains(c))
+						return false;
+					else
+						col[j].add(c);
+                        //  col[j]+=c;
+					
+					int k=3*(i/3)+(j/3);
+					
+					if( sub[k]!=null &&sub[k].contains(c))
+						return false;
+					else
+						sub[k].add(c);
+                        //  sub[k]+=c;
+				}
+
+			}
+
+		}
+		return true;
+	}
+        
+    }
+
